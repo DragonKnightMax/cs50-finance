@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock%}
+
+{% block main %}
+    <table class="table table-hover">
+        <!--
+        th is header
+        tr is row
+        td is data/cell
+        -->
+        <tr>
+            <th>Symbol</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Shares</th>
+            <th>TOTAL</th>
+        </tr>
+
+    <!-- Stock info -->
+    {% for stock in portfolio %}
+        <tr>
+            <td>{{ stock["symbol"] }}</td>
+            <td>{{ stock["name"] }}</td>
+            <td>{{ stock["price"] }}</td>
+            <td>{{ stock["shares"] }}</td>
+            <td>{{ stock["total"] }}</td>
+        </tr>
+    {% endfor %}
+
+    <!-- cash balance -->
+        <tr>
+            <td>CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{ cash }}</td>
+        </tr>
+
+    <!-- total -->
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id="subtotal">{{ subtotal }}</td>
+        </tr>
+    </table>
+{% endblock %}

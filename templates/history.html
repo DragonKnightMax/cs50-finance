@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-hover">
+        <tr>
+            <th colspan="1">Transaction Type</th>
+            <th colspan="1">Symbol</th>
+            <th colspan="1">Price</th>
+            <th colspan="1">Shares</th>
+            <th colspan="1">Total</th>
+            <th colspan="1">Transaction Time</th>
+        </tr>
+
+    {% for record in records %}
+        <tr >    
+            <td colspan="1" class="{{ "text-success" if record["shares"] > 0 else "text-danger"}}">
+                <b>{{ "BUY" if record["shares"] > 0 else "SELL" }}</b>
+            </td>
+            <td colspan="1">{{ record["symbol"] }}</td>
+            <td colspan="1">{{ record["price"] }}</td>
+            <td colspan="1">{{ record["shares"] | abs }}</td>
+            <td colspan="1">{{ record["total"] }}</td>
+            <td colspan="1">{{ record["timestamp"] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}
