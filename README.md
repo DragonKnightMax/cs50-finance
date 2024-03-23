@@ -8,6 +8,7 @@ CS50 Finance is a web application that allows users to trade stocks developed fo
 - Flask
 - SQLAlchemy
 - IEX Stock API
+- Bootstrap
 
 
 ## Features
